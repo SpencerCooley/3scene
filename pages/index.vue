@@ -1,13 +1,27 @@
 <script setup>
 import ShaderJournal from '../threescene-tools/shader-journal/app';
 
-  const toolbarOpen = ref(true);
-  const toggleToolbar = () => { 
-    toolbarOpen.value = !toolbarOpen.value;
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 1);
-  }
+useHead({
+  title: '3D Tools For The Web',
+  meta: [
+    { hid: 'og-type', property: 'og:type', content: 'website' },
+    { hid: 'og-title', property: 'og:title', content: '3Scene.com | Shader Journal' },
+    { hid: 'og-desc', property: 'og:description', content: 'Shader Journal allows you to create a journal of different shaders, test them out on different geometries, and share them on the web' },
+    {
+      hid: 'og-image', property: 'og:image',
+      content: 'https://storage.googleapis.com/img-gorillaisms/social-bg-3scene.png'
+    }
+
+  ]
+})
+
+const toolbarOpen = ref(true);
+const toggleToolbar = () => { 
+  toolbarOpen.value = !toolbarOpen.value;
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 1);
+}
 const app = ref(null);
 
 
