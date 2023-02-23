@@ -114,7 +114,7 @@ body {
 }
 
 .page-wrapper.hidden-toolbar {
-  grid-template-rows: 2fr 30px; 
+  grid-template-rows: 2fr 50px; 
 }
 
 .toolbar {
@@ -124,6 +124,7 @@ body {
   overflow-x: hidden;
   border-top:1px solid lighten($base, 10%);
   border-left:none;
+  z-index:0;
   
   .toolbar-content {
     margin-top:60px;
@@ -133,16 +134,19 @@ body {
     display:none;
   }
   .toggle.mobile {
-    position:absolute;
+    position:sticky;
     width:50px;
-    height:30px;
+    height:50px;
     display:flex;
     justify-content: center;
     align-items:center;
     cursor:pointer;
-    right: calc(50% - 25px);
+    top:0px;
+    margin:0 auto;
     background-color: lighten($base, 10%);
     border-top: 1px solid lighten($base, 20%);
+    z-index: 1;
+
 
   }
 }
