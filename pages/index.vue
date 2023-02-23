@@ -1,34 +1,74 @@
 <script setup>
+import ShaderJournal from '../threescene-tools/shader-journal/app';
+
   const toolbarOpen = ref(true);
-const toggleToolbar = () => { 
-  toolbarOpen.value = !toolbarOpen.value;
-}
+  const toggleToolbar = () => { 
+    toolbarOpen.value = !toolbarOpen.value;
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 1);
+  }
+const app = ref(null);
+
+
+const threeStage = ref(null);
+
+const selectedGeometry = ref('cube');
+const geometryList = [
+  { title: 'Sphere', value: 'sphere' },
+  { title: 'Cube', value: 'cube' },
+  { title: 'Torus Knot', value: 'torus-knot' },
+  { title: 'Torus', value: 'torus' },
+  { title: 'Plane', value: 'plane' },
+]
+
+const selectedFragmentShader = ref('starTraveler');
+const fragmentShaderList = [
+  { title: "Octagon Storm", value: 'octagonStorm' },
+  { title: "Star Traveler", value: 'starTraveler' },
+  {title: "shader GPT!", value: 'shaderGPT'}
+];
+
+watch(selectedFragmentShader, () => {
+  app.value.setFragmentShader(selectedFragmentShader.value);
+});
+
+watch(selectedGeometry, () => {
+  app.value.setGeometry(selectedGeometry.value);
+});
+
+onMounted(() => {
+  const shaderJournal = new ShaderJournal(threeStage.value);
+  app.value = shaderJournal; 
+});
+
 </script>
 <template>
   <div class="page-wrapper" :class="{'hidden-toolbar': !toolbarOpen}">
-    <div class="three-stage">
-      <h1>The actual three.js scene will go here.</h1>
+    <div class="three-stage" ref="threeStage">
     </div>
     <div class="toolbar" > 
 
       <div @click="toggleToolbar" class="toggle mobile" role="button">
-        <Icon v-if="toolbarOpen" name="majesticons:chevron-down-line" />
-        <Icon v-else name="majesticons:chevron-up-line" />
+        <Icon v-if="toolbarOpen" size="1.5em" name="majesticons:chevron-down-line" />
+        <Icon v-else size="1.5em" name="majesticons:chevron-up-line" />
       </div>
 
       <div @click="toggleToolbar" class="toggle desktop" role="button">
-        <Icon v-if="toolbarOpen" name="majesticons:chevron-right-line" />
-        <Icon v-else name="majesticons:chevron-left-line" />
+        <Icon size="1.5em" v-if="toolbarOpen" name="majesticons:chevron-right-line" />
+        <Icon  size="1.5em" v-else name="majesticons:chevron-left-line" />
       </div>
       
       <div class="toolbar-content">
         <v-select
           label="Geometry"
-          :items="['Monkey', 'Some Other Thing', 'Another', 'Torus Knot', 'Cube', 'Sphere']"
+          v-model="selectedGeometry" 
+          :items="geometryList"
         ></v-select>
         <v-select
           label="Fragment Shaders"
-          :items="['Magic Hat', 'Fractal Journey', 'Spiral Galaxy', 'Monster Eyes', 'Space Ice Cream', 'Monkey Village']"
+          v-model="selectedFragmentShader"
+          :items="fragmentShaderList"
         ></v-select>
       </div>
     </div>
@@ -40,10 +80,10 @@ const toggleToolbar = () => {
 $base: #000;
 
 body {
-
   height:100vh;
 }
 .page-wrapper {
+  overflow:hidden;
   height:100vh;
   display:grid;
   grid-template-rows: 2fr 1fr;
@@ -57,6 +97,8 @@ body {
   background-color: $base; 
   overflow-y:scroll;
   overflow-x: hidden;
+  border-top:1px solid lighten($base, 10%);
+  border-left:none;
   
   .toolbar-content {
     margin-top:60px;
@@ -79,6 +121,10 @@ body {
   }
 }
 
+.three-stage {
+  overflow:hidden;
+}
+
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
 @media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */ }
 @media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
@@ -93,8 +139,14 @@ body {
     grid-template-columns: 2fr 30px; 
     grid-template-rows: 1fr;
   }
+  
+  .three-stage {
+    overflow:hidden;
+  }
 
   .toolbar {
+    border-top:none;
+    border-left:1px solid lighten($base, 10%);
     .toolbar-content {
       margin-left:40px;
     }

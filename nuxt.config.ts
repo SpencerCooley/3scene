@@ -11,10 +11,10 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/styles/global.scss", 'vuetify/lib/styles/main.sass'],
   vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },  
     css: {
-      define: {
-        'process.env.DEBUG': false,
-      },  
       preprocessorOptions: {
         scss: {
           additionalData: '@import "@/assets/styles/_colors.scss";',
