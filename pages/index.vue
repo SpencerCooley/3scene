@@ -11,7 +11,7 @@ useHead({
       hid: 'og-image', property: 'og:image',
       content: 'https://storage.googleapis.com/img-gorillaisms/social-bg-3scene.png'
     },
-    { hid: 'twitter-image', property: 'twitter:image', content: 'https://storage.googleapis.com/img-gorillaisms/social-bg-3scene.png' },
+    { hid: 'twitter-image', property: 'twitter:image', content: 'https://storage.googleapis.com/img-gorillaisms/3scene-twitter-cover-card.png' },
     { hid: 'twitter-image-alt', property: 'twitter:image:alt', content: '3scene cover image for social sharing. It presents the logo which is an icon style 3D box.' },
     { hid: 'twitter-title', property: 'twitter:title', content: 'Shader Journal by 3scene.com' },
     { hid: 'twitter-description', property: 'twitter:description', content: '3scene.com is a collection of 3D tools for the web. Shader Journal is the first tool built on this platform. Shader Journal allows you to test out a collection of glsl shaders on different geometries. It is a lot of fun to look at and a useful tool when developing new shaders. '},
