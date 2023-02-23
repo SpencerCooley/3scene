@@ -68,10 +68,13 @@ onMounted(() => {
     <div class="three-stage" ref="threeStage">
     </div>
     <div class="toolbar" > 
-
+        <div class="social-bar">
+          <a href="https://twitter.com/cooleyarts" target="_blank"><Icon name="grommet-icons:twitter" /></a>
+          <a href="https://github.com/SpencerCooley/3scene"  target="_blank"><Icon name="grommet-icons:github" /></a>
+        </div>
       <div @click="toggleToolbar" class="toggle mobile" role="button">
-        <Icon v-if="toolbarOpen" size="1.5em" name="majesticons:chevron-down-line" />
-        <Icon v-else size="1.5em" name="majesticons:chevron-up-line" />
+        <Icon style="color:#fff;" v-if="toolbarOpen" size="1.5em" name="majesticons:chevron-down-line" />
+        <Icon style="color:#fff;" v-else size="1.5em" name="majesticons:chevron-up-line" />
       </div>
 
       <div @click="toggleToolbar" class="toggle desktop" role="button">
@@ -90,6 +93,7 @@ onMounted(() => {
           v-model="selectedFragmentShader"
           :items="fragmentShaderList"
         ></v-select>
+
       </div>
     </div>
   </div>
@@ -114,6 +118,7 @@ body {
 }
 
 .toolbar {
+  position:relative;
   background-color: $base; 
   overflow-y:scroll;
   overflow-x: hidden;
@@ -122,6 +127,7 @@ body {
   
   .toolbar-content {
     margin-top:60px;
+    margin-bottom:100px;
   }
   .toggle.desktop {
     display:none;
@@ -145,10 +151,28 @@ body {
   overflow:hidden;
 }
 
+.social-bar {
+  display:none;
+}
+
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
 @media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */ }
 @media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
 @media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+  .social-bar {
+    display:block;
+    color:#fff;
+    background-color:rgba(0,0,0,.6);
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    padding:15px;
+    a {
+      margin-left:15px;
+      color:#fff;
+      font-size:2em;
+    }
+  }
 
   .page-wrapper {
     grid-template-rows: none;
@@ -158,6 +182,9 @@ body {
   .page-wrapper.hidden-toolbar {
     grid-template-columns: 2fr 30px; 
     grid-template-rows: 1fr;
+    .social-bar {
+      display:none;  
+    }
   }
   
   .three-stage {
