@@ -1,6 +1,7 @@
 <script setup>
 import ShaderJournal from '../threescene-tools/shader-journal/app';
 
+
 useHead({
   title: '3D Tools For The Web',
   meta: [
@@ -46,7 +47,8 @@ const selectedFragmentShader = ref('starTraveler');
 const fragmentShaderList = [
   { title: "Octagon Storm", value: 'octagonStorm' },
   { title: "Star Traveler", value: 'starTraveler' },
-  {title: "shader GPT!", value: 'shaderGPT'}
+  { title: "shader GPT!", value: 'shaderGPT' },
+  { title: "Mystical Dark Pond", value: 'mysticalDarkPond' }
 ];
 
 watch(selectedFragmentShader, () => {
@@ -68,10 +70,10 @@ onMounted(() => {
     <div class="three-stage" ref="threeStage">
     </div>
     <div class="toolbar" > 
-        <div class="social-bar">
-          <a href="https://twitter.com/cooleyarts" target="_blank"><Icon name="grommet-icons:twitter" /></a>
-          <a href="https://github.com/SpencerCooley/3scene"  target="_blank"><Icon name="grommet-icons:github" /></a>
-        </div>
+      <div class="social-bar">
+        <a href="https://twitter.com/cooleyarts" target="_blank"><Icon name="grommet-icons:twitter" /></a>
+        <a href="https://github.com/SpencerCooley/3scene"  target="_blank"><Icon name="grommet-icons:github" /></a>
+      </div>
       <div @click="toggleToolbar" class="toggle mobile" role="button">
         <Icon style="color:#fff;" v-if="toolbarOpen" size="1.5em" name="majesticons:chevron-down-line" />
         <Icon style="color:#fff;" v-else size="1.5em" name="majesticons:chevron-up-line" />
