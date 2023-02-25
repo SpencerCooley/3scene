@@ -48,7 +48,8 @@ const fragmentShaderList = [
   { title: "Octagon Storm", value: 'octagonStorm' },
   { title: "Star Traveler", value: 'starTraveler' },
   { title: "shader GPT!", value: 'shaderGPT' },
-  { title: "Mystical Dark Pond", value: 'mysticalDarkPond' }
+  { title: "Mystical Dark Pond", value: 'mysticalDarkPond' },
+  { title: "New Spirit", value: 'newSpirit' }
 ];
 
 watch(selectedFragmentShader, () => {
