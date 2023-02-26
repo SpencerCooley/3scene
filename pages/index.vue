@@ -1,6 +1,9 @@
 <script setup>
 import ShaderJournal from '../threescene-tools/shader-journal/app';
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute();
+const router = useRouter()
 
 useHead({
   title: '3D Tools For The Web',
@@ -49,20 +52,38 @@ const fragmentShaderList = [
   { title: "Star Traveler", value: 'starTraveler' },
   { title: "shader GPT!", value: 'shaderGPT' },
   { title: "Mystical Dark Pond", value: 'mysticalDarkPond' },
-  { title: "New Spirit", value: 'newSpirit' }
+  { title: "New Spirit", value: 'newSpirit' },
+  { title: "Watercolor World", value: 'watercolorWorld' }
 ];
 
 watch(selectedFragmentShader, () => {
   app.value.setFragmentShader(selectedFragmentShader.value);
+  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value } });
 });
 
 watch(selectedGeometry, () => {
   app.value.setGeometry(selectedGeometry.value);
+  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value } });
 });
+
+
+
+
 
 onMounted(() => {
   const shaderJournal = new ShaderJournal(threeStage.value);
-  app.value = shaderJournal; 
+  app.value = shaderJournal;
+  if (Object.keys(route.query).length) { 
+    if (Object.keys(route.query).includes('fs')) { 
+      // set the fragmentShader
+      selectedFragmentShader.value = route.query.fs;
+    }
+
+    if (Object.keys(route.query).includes('geometry')) {
+      // set the fragmentShader
+      selectedGeometry.value = route.query.geometry;
+    }
+  } 
 });
 
 </script>
