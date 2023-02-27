@@ -44,6 +44,9 @@ const geometryList = [
   { title: 'Torus Knot', value: 'torus-knot' },
   { title: 'Torus', value: 'torus' },
   { title: 'Plane', value: 'plane' },
+  { title: 'Cylinder', value: 'cylinder' },
+  { title: 'Cone', value: 'cone' },
+  { title: 'Capsule', value: 'capsule' }
 ]
 
 const selectedFragmentShader = ref('starTraveler');

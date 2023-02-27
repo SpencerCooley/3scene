@@ -78,7 +78,10 @@ class ShaderJournal {
       'cube': new THREE.BoxGeometry(1, 1, 1),
       'torus': new THREE.TorusGeometry(.5, .47, 50, 30),
       'torus-knot': new THREE.TorusKnotGeometry(.5, .18, 50, 50),
-      'plane': new THREE.PlaneGeometry(1, 1)
+      'plane': new THREE.PlaneGeometry(1, 1),
+      'cylinder': new THREE.CylinderGeometry(.2, .2, 1, 32),
+      'cone': new THREE.ConeGeometry(.2, .2, 32),
+      'capsule': new THREE.CapsuleGeometry( .4, .4, 4, 8 )
     }
     this.geometryLookup = geometryLookup;
 
