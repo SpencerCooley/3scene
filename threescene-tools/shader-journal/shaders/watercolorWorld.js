@@ -11,7 +11,6 @@ void main() {
 
     vec2 multiplier = vec2(10.0, 10.0*uv.x);
     vec2 uvGrid = fract(uv*multiplier);
-
     vec3 color = vec3(0.0);
     // Generate the red, green, and blue color channels using sine waves
     color.r = 0.5 + 0.5 * sin(uv.x + u_time * 2.0);

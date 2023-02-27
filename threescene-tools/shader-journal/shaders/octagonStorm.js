@@ -14,7 +14,6 @@ const shader = {
         vec2 m = fract(uv*multiplier);
         vec2 d = fract(uv*multiplier+0.5);
         
-
         //		first attempt
         // ww = float(m.x > .9 || m.y > .9 || abs(m.x+m.y-.9) > .6 || abs(m.x-m.y) > .6);
        // ww = float(m.x > .9 || m.x > abs(sin(u_time))*.9 || abs(m.y+m.y-.9) > .6 || abs(m.x-m.y) > .2);

@@ -56,6 +56,7 @@ const fragmentShaderList = [
   { title: "shader GPT!", value: 'shaderGPT' },
   { title: "Mystical Dark Pond", value: 'mysticalDarkPond' },
   { title: "New Spirit", value: 'newSpirit' },
+  { title: "New Spirit #2", value: 'newSpirit2' },
   { title: "Watercolor World", value: 'watercolorWorld' }
 ];
 
