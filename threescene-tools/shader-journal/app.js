@@ -22,16 +22,7 @@ class ShaderJournal {
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 
 
-    const vShader = `
-    uniform float u_time;
-    varying vec2 vUv; // varyings are variables that let you send values from the vertex to the fragment shader
-
-    void main() {
-      vUv = uv; // these contain the texture coordinates of the shsape
-      vec3 pos = position;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos , 1.0);
-    }
-    `
+    const vShader = shaders['simpleWavy'].content;
     this.vShader = vShader; 
 
     const uniforms = {
@@ -101,19 +92,18 @@ class ShaderJournal {
     this.theMesh.geometry = this.geometryLookup[name];
   }
 
-
-
-  setFragmentShader(name) {
+  setShader(fs, vs) { 
     const shaderMaterial = new THREE.ShaderMaterial({
       uniforms: this.uniforms,
-      vertexShader: this.vShader,
-      fragmentShader: shaders[name].content,
+      vertexShader: shaders[vs].content,
+      fragmentShader: shaders[fs].content,
       side: THREE.DoubleSide,
       wireframe: false
     });
     this.theMesh.material = shaderMaterial;
-
   }
+
+
 }
 
 export default ShaderJournal;

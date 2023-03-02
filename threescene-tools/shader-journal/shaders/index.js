@@ -1,10 +1,14 @@
-import octagonStorm from './octagonStorm';
-import starTraveler from './starTraveler';
-import shaderGPT from './shaderGPT';
-import mysticalDarkPond from './mysticalDarkPond';
-import newSpirit from './newSpirit';
-import newSpirit2 from './newSpirit2';
-import watercolorWorld from './watercolorWorld';
+import octagonStorm from './fragment/octagonStorm';
+import starTraveler from './fragment/starTraveler';
+import shaderGPT from './fragment/shaderGPT';
+import mysticalDarkPond from './fragment/mysticalDarkPond';
+import newSpirit from './fragment/newSpirit';
+import newSpirit2 from './fragment/newSpirit2';
+import watercolorWorld from './fragment/watercolorWorld';
+import drippingPond from './fragment/drippingPond';
+// only put vertex shaders below this comment
+import simpleWavy from './vertex/simpleWavy';
+import standardVertex from './vertex/standardVertex';
 
 const shaders = {
   octagonStorm,
@@ -13,7 +17,12 @@ const shaders = {
   mysticalDarkPond,
   newSpirit,
   newSpirit2,
-  watercolorWorld
+  watercolorWorld,
+  drippingPond,
+  //only put vertex shaders below this comment. we will organize this better later
+  simpleWavy,
+  standardVertex
+
 }
 
 export default shaders;

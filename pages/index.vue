@@ -57,20 +57,33 @@ const fragmentShaderList = [
   { title: "Mystical Dark Pond", value: 'mysticalDarkPond' },
   { title: "New Spirit", value: 'newSpirit' },
   { title: "New Spirit #2", value: 'newSpirit2' },
-  { title: "Watercolor World", value: 'watercolorWorld' }
+  { title: "Watercolor World", value: 'watercolorWorld' },
+  { title: "Dripping Pond", value: 'drippingPond' }
 ];
 
-watch(selectedFragmentShader, () => {
-  app.value.setFragmentShader(selectedFragmentShader.value);
-  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value } });
-});
+
+
+const selectedVertexShader = ref('standard');
+const vertexShaderList = [
+  { title: "Standard", value: 'standardVertex' },
+  { title: "Simple Wavy", value: 'simpleWavy' }
+];
+
 
 watch(selectedGeometry, () => {
   app.value.setGeometry(selectedGeometry.value);
-  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value } });
+  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value, vs: selectedVertexShader.value } });
 });
 
+watch(selectedFragmentShader, () => {
+  app.value.setShader(selectedFragmentShader.value, selectedVertexShader.value);
+  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value, vs: selectedVertexShader.value } });
+});
 
+watch(selectedVertexShader, () => {
+  app.value.setShader(selectedFragmentShader.value, selectedVertexShader.value);
+  router.push({ query: { fs: selectedFragmentShader.value, geometry: selectedGeometry.value, vs: selectedVertexShader.value } });
+});
 
 
 
@@ -81,6 +94,11 @@ onMounted(() => {
     if (Object.keys(route.query).includes('fs')) { 
       // set the fragmentShader
       selectedFragmentShader.value = route.query.fs;
+    }
+
+    if (Object.keys(route.query).includes('vs')) {
+      // set the fragmentShader
+      selectedVertexShader.value = route.query.vs;
     }
 
     if (Object.keys(route.query).includes('geometry')) {
@@ -116,10 +134,18 @@ onMounted(() => {
           v-model="selectedGeometry" 
           :items="geometryList"
         ></v-select>
+        <!--lets integrate some fun sliders for geometry attributes.-->
+        <!-- <v-slider track-color="white"  label="radius" ></v-slider>
+        <v-slider track-color="white"  label="tubular segments" ></v-slider> -->
         <v-select
           label="Fragment Shaders"
           v-model="selectedFragmentShader"
           :items="fragmentShaderList"
+        ></v-select>
+        <v-select
+            label="Vertex Shaders"
+            v-model="selectedVertexShader"
+            :items="vertexShaderList"
         ></v-select>
 
       </div>
