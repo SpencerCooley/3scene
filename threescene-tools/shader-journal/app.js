@@ -21,10 +21,6 @@ class ShaderJournal {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 
-
-    const vShader = shaders['simpleWavy'].content;
-    this.vShader = vShader; 
-
     const uniforms = {
       u_time: { value: 0.0 },
       u_resolution: { value: { x: 0, y: 0 } },
@@ -33,7 +29,7 @@ class ShaderJournal {
 
     const shaderMaterial = new THREE.ShaderMaterial({
       uniforms, 
-      vertexShader: vShader,
+      vertexShader: shaders.standardVertex.content,
       fragmentShader: shaders.starTraveler.content,
       side: THREE.DoubleSide,
       wireframe: false
