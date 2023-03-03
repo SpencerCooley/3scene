@@ -63,7 +63,7 @@ const fragmentShaderList = [
 
 
 
-const selectedVertexShader = ref('standard');
+const selectedVertexShader = ref('standardVertex');
 const vertexShaderList = [
   { title: "Standard", value: 'standardVertex' },
   { title: "Simple Wavy", value: 'simpleWavy' }
@@ -142,6 +142,7 @@ onMounted(() => {
           v-model="selectedFragmentShader"
           :items="fragmentShaderList"
         ></v-select>
+
         <v-select
             label="Vertex Shaders"
             v-model="selectedVertexShader"
