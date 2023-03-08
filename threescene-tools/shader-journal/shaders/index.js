@@ -6,9 +6,11 @@ import newSpirit from './fragment/newSpirit';
 import newSpirit2 from './fragment/newSpirit2';
 import watercolorWorld from './fragment/watercolorWorld';
 import drippingPond from './fragment/drippingPond';
+import burntSand from './fragment/burntSand';
 // only put vertex shaders below this comment
 import simpleWavy from './vertex/simpleWavy';
 import standardVertex from './vertex/standardVertex';
+import hardWavy from './vertex/hardWavy';
 
 const shaders = {
   octagonStorm,
@@ -21,8 +23,9 @@ const shaders = {
   drippingPond,
   //only put vertex shaders below this comment. we will organize this better later
   simpleWavy,
-  standardVertex
-
+  standardVertex,
+  burntSand,
+  hardWavy
 }
 
 export default shaders;

@@ -68,7 +68,7 @@ class ShaderJournal {
       'plane': new THREE.PlaneGeometry(1, 1),
       'cylinder': new THREE.CylinderGeometry(.2, .2, 1, 32),
       'cone': new THREE.ConeGeometry(.2, .2, 32),
-      'capsule': new THREE.CapsuleGeometry( .4, .4, 4, 8 )
+      'capsule': new THREE.CapsuleGeometry( .4, .4, 20, 20 )
     }
     this.geometryLookup = geometryLookup;
 

@@ -58,7 +58,8 @@ const fragmentShaderList = [
   { title: "New Spirit", value: 'newSpirit' },
   { title: "New Spirit #2", value: 'newSpirit2' },
   { title: "Watercolor World", value: 'watercolorWorld' },
-  { title: "Dripping Pond", value: 'drippingPond' }
+  { title: "Dripping Pond", value: 'drippingPond' },
+  { title: "Burnt Sand", value: 'burntSand' },
 ];
 
 
@@ -66,7 +67,8 @@ const fragmentShaderList = [
 const selectedVertexShader = ref('standardVertex');
 const vertexShaderList = [
   { title: "Standard", value: 'standardVertex' },
-  { title: "Simple Wavy", value: 'simpleWavy' }
+  { title: "Simple Wavy", value: 'simpleWavy' },
+  { title: "Hard Wavy", value: 'hardWavy' }
 ];
 
 
