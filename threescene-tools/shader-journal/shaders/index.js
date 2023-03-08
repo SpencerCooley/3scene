@@ -7,6 +7,8 @@ import newSpirit2 from './fragment/newSpirit2';
 import watercolorWorld from './fragment/watercolorWorld';
 import drippingPond from './fragment/drippingPond';
 import burntSand from './fragment/burntSand';
+import candyCane from './fragment/candyCane';
+
 // only put vertex shaders below this comment
 import simpleWavy from './vertex/simpleWavy';
 import standardVertex from './vertex/standardVertex';
@@ -25,7 +27,8 @@ const shaders = {
   simpleWavy,
   standardVertex,
   burntSand,
-  hardWavy
+  hardWavy,
+  candyCane
 }
 
 export default shaders;

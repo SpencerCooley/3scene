@@ -38,6 +38,7 @@ class ShaderJournal {
     const theMesh = new THREE.Mesh(geometry, shaderMaterial);
     this.theMesh = theMesh;
     scene.add(theMesh);
+    scene.background = 0xffffff;
 
     camera.position.z = 1.5;
     console.log(domEntryPoint);

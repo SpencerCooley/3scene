@@ -60,6 +60,7 @@ const fragmentShaderList = [
   { title: "Watercolor World", value: 'watercolorWorld' },
   { title: "Dripping Pond", value: 'drippingPond' },
   { title: "Burnt Sand", value: 'burntSand' },
+  { title: 'Candy Cane', value: 'candyCane'}
 ];
 
 
