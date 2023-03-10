@@ -46,7 +46,10 @@ const geometryList = [
   { title: 'Plane', value: 'plane' },
   { title: 'Cylinder', value: 'cylinder' },
   { title: 'Cone', value: 'cone' },
-  { title: 'Capsule', value: 'capsule' }
+  { title: 'Capsule', value: 'capsule' },
+  { title: 'Strange Head', value: 'strangeHead' },
+  { title: 'Skull', value: 'skull' },
+  { title: 'Blender Monkey', value: 'blenderMonkey' }
 ]
 
 const selectedFragmentShader = ref('starTraveler');
