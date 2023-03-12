@@ -13,6 +13,7 @@ import candyCane from './fragment/candyCane';
 import simpleWavy from './vertex/simpleWavy';
 import standardVertex from './vertex/standardVertex';
 import hardWavy from './vertex/hardWavy';
+import bloat from './vertex/bloat';
 
 const shaders = {
   octagonStorm,
@@ -23,12 +24,14 @@ const shaders = {
   newSpirit2,
   watercolorWorld,
   drippingPond,
+  candyCane,
   //only put vertex shaders below this comment. we will organize this better later
   simpleWavy,
   standardVertex,
   burntSand,
   hardWavy,
-  candyCane
+  bloat
+  
 }
 
 export default shaders;

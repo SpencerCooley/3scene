@@ -49,7 +49,7 @@ const geometryList = [
   { title: 'Capsule', value: 'capsule' },
   { title: 'Strange Head', value: 'strangeHead' },
   { title: 'Skull', value: 'skull' },
-  { title: 'Blender Monkey', value: 'blenderMonkey' }
+  { title: 'Blender Monkey', value: 'blenderMonkey' },
 ]
 
 const selectedFragmentShader = ref('starTraveler');
@@ -72,7 +72,8 @@ const selectedVertexShader = ref('standardVertex');
 const vertexShaderList = [
   { title: "Standard", value: 'standardVertex' },
   { title: "Simple Wavy", value: 'simpleWavy' },
-  { title: "Hard Wavy", value: 'hardWavy' }
+  { title: "Hard Wavy", value: 'hardWavy' },
+  { title: "Bloat", value: 'bloat' }
 ];
 
 
